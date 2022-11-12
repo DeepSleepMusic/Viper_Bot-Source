@@ -87,4 +87,4 @@ async def kick(ctx: disnake.Message, __member__: disnake.Member, *, __reason__=N
         Bot_Management.log_error(__error__=exception)
 
 
-client.run("MTAzMjY5MTgxODAxOTcwMDc5Ng.Gh0p4h.vUbPvMS_7Ld1sCU902MDtUsOGzY4qiyRhRl3Qg")
+client.run("token")

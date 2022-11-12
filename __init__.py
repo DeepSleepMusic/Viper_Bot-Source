@@ -83,7 +83,7 @@ async def kick(ctx: disnake.Message, __member__: disnake.Member, *, __reason__=N
     try:
         if __reason__ is None:
             try:
-                __memberEmbed__ = disnake.Embed(title="Kicked", description=f"You Have Been Kicked From: {ctx.guild} For: {__reason__}\n||  ||Please Make Sure You Read The Rule(s)",
+                __memberEmbed__ = disnake.Embed(title="Kicked", description=f"You Have Been Kicked From: {ctx.guild}\nReason: {__reason__}\nPlease Make Sure You Read The Rule(s)",
                                                 color=disnake.Color.red()) \
                     .set_thumbnail(url="https://th.bing.com/th/id/OIP.COYEZS1SJ4znwY6931asnAAAAA?pid=ImgDet&rs=1")
                 await __member__.send(
@@ -512,6 +512,110 @@ async def recent_errors(ctx: disnake.Message):
                     text="𝓑𝔂 𝓥𝓟𝓢-𝓢𝓮𝓻𝓿𝓮𝓻 | 𝓒𝓸𝓭𝓲𝓷𝓰 - 𝓣𝓮𝓪𝓶"
                 )
         await ctx.channel.send(embed=_embed_)
+    except Exception as en:
+        Bot_Management.log_error(__error__=en)
+
+
+@client.event
+async def on_member_join(member: disnake.Member):
+    try:
+        _embed_ = disnake.Embed(
+            title=f"Welcome, {member}",
+            description="Check Out These Links!\nOur-Website: https://us-developers.org\nMobile: https://us-developers/mobile\nServer: https://discord.gg/us-developers\nGithub: https://github.com/DeepSleepMusic",
+            color = disnake.Color.green()
+        ) \
+            .set_thumbnail(
+                url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg"
+            ) \
+                .set_footer(
+                    icon_url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg",
+                    text="𝓑𝔂 𝓥𝓟𝓢-𝓢𝓮𝓻𝓿𝓮𝓻 | 𝓒𝓸𝓭𝓲𝓷𝓰 - 𝓣𝓮𝓪𝓶"
+                )
+        await member.send(embed = _embed_)
+        _embed0_ = disnake.Embed(
+            title=f"Welcome, {member}",
+            description=f"Welcome {member.mention} We Hope You Like It Here!\nJoined At: {time.ctime()}-UTC\n[!]: This User Might Have Joined On A Different Server.",
+            color = disnake.Color.green()
+        ) \
+            .set_thumbnail(
+                url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg"
+            ) \
+                .set_footer(
+                    icon_url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg",
+                    text="𝓑𝔂 𝓥𝓟𝓢-𝓢𝓮𝓻𝓿𝓮𝓻 | 𝓒𝓸𝓭𝓲𝓷𝓰 - 𝓣𝓮𝓪𝓶"
+                )
+        await client.get_channel(1041123110595870730).send(embed = _embed0_)
+    except Exception as en:
+        Bot_Management.log_error(__error__=en)
+
+@client.event
+async def on_member_remove(member: disnake.Member):
+    try:
+        _embed_ = disnake.Embed(
+            title=f"GoodBye! {member}",
+            description=f"The Member: {member.mention} Has Left :(\n**[!]:** This Could Be A Member From A Different Server",
+            color = disnake.Color.blue()
+        ) \
+            .set_thumbnail(
+                url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg",
+            ) \
+                .set_footer(
+                    icon_url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg",
+                    text="𝓑𝔂 𝓥𝓟𝓢-𝓢𝓮𝓻𝓿𝓮𝓻 | 𝓒𝓸𝓭𝓲𝓷𝓰 - 𝓣𝓮𝓪𝓶"
+                )
+        await client.get_channel(1041123110595870730).send(embed = _embed_)
+    except Exception as exception:
+        Bot_Management.log_error(__error__=exception)
+
+@client.command(name="ping")
+async def ping(ctx: disnake.Message):
+    try:
+        _embed_ = disnake.Embed(
+            title="Pong!",
+            description=f"It Took: {client.latency}ms To Respond To Your Command!\nTime(UTC): {time.ctime()}",
+            color = disnake.Color.random()
+        ) \
+            .set_thumbnail(
+                url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg"
+            ) \
+                .set_footer(
+                    icon_url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg",
+                    text="𝓑𝔂 𝓥𝓟𝓢-𝓢𝓮𝓻𝓿𝓮𝓻 | 𝓒𝓸𝓭𝓲𝓷𝓰 - 𝓣𝓮𝓪𝓶"
+                )
+        await ctx.channel.send(embed = _embed_)
+    except Exception as en:
+        Bot_Management.log_error(__error__=en)
+
+@client.command(name="feedback")
+async def feedback(ctx: disnake.Message, *, _feedback_: str):
+    try:
+        _embed_ = disnake.Embed(
+            title="FeedBack Sent!",
+            description=f"Thank You For Sending FeedBack On Our Bot\nWe Will Try To Improve It\nTime(UTC): {time.ctime()}",
+            color = disnake.Color.green()
+        ) \
+            .set_thumbnail(
+                url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg"
+            ) \
+                .set_footer(
+                    icon_url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg",
+                    text="𝓑𝔂 𝓥𝓟𝓢-𝓢𝓮𝓻𝓿𝓮𝓻 | 𝓒𝓸𝓭𝓲𝓷𝓰 - 𝓣𝓮𝓪𝓶"
+                )
+
+        _embed0_ = disnake.Embed(
+            title="<- Feedback Command ->",
+            description=f"You Have Been Sent Feedback!\nFeedback: {_feedback_}\nTime: {time.ctime()}",
+            color = disnake.Color.random()
+        ) \
+            .set_thumbnail(
+                url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg"
+            ) \
+                .set_footer(
+                    icon_url="https://img.freepik.com/free-vector/realistic-polygonal-background_52683-60791.jpg?size=626&ext=jpg",
+                    text="𝓑𝔂 𝓥𝓟𝓢-𝓢𝓮𝓻𝓿𝓮𝓻 | 𝓒𝓸𝓭𝓲𝓷𝓰 - 𝓣𝓮𝓪𝓶"
+                )
+        await ctx.channel.send(embed=_embed_)
+        await client.get_channel(1039324400404672584).send(embed = _embed0_)
     except Exception as en:
         Bot_Management.log_error(__error__=en)
 

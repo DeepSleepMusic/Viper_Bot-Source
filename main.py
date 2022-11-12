@@ -362,4 +362,4 @@ async def source(ctx: disnake.Message):
         await ctx.channel.send(embed=__embed__)
     except Exception as en:
         Bot_Management.log_error(__error__=en)
-client.run("MTA0MDQ2OTY1MTg2NTQ4NTMyNA.Gtzz3v.n-0NnQTksyNFsNEfs48BGR8V1t-iFkVrSlegBM")
+
